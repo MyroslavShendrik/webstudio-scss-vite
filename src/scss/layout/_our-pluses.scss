@@ -1,0 +1,82 @@
+.our-pluses{
+   padding-top: 60px;
+    padding-bottom: 60px;
+    @media screen and (min-width: getBreakPoint('tablet')){
+        padding:60px 0;
+    }
+    @media screen and (min-width: getBreakPoint('desktop')){
+        padding-top: 94px;
+    }
+
+.our-pluses-list {
+    // @include flex(_,_,_,_,column);
+ 
+
+
+    @media screen and (min-width: getBreakPoint('tablet')) {
+        @include flex(_,_,_,wrap,_);
+
+        gap: 30px;
+    }
+    @media screen and (min-width: getBreakPoint('desktop')){
+        @include flex(_,_,_,_,_);
+
+    }
+
+    &__item {
+        width: 450px;
+
+        //  vertical-align: top;
+        @media screen and (min-width: getBreakPoint('tablet')) {
+            width: 354px;
+            margin-right: 0;
+        }
+        @media screen and (min-width: getBreakPoint('desktop')){
+            flex-basis: 270px;
+            vertical-align: top;
+        }
+    }
+
+    &__item::before {
+        content: "";
+        height: 120px;
+        background-color: getColor('title');
+        display: block;
+        margin-bottom: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 4px;
+    }
+
+    &__item:nth-child(1)::before {
+        background-image: url(../svg/antenna.svg);
+    }
+
+    &__item:nth-child(2)::before {
+        background-image: url(../svg/clock.svg);
+    }
+
+
+    &__item:nth-child(3)::before {
+        background-image: url(../svg/diagram.svg);
+    }
+
+
+    &__item:nth-child(4)::before {
+        background-image: url(../svg/astronaut.svg)
+    }
+    &__title {
+                     color: getColor('link');
+                     margin-bottom: 10px;
+                }
+        
+        
+                 &__text {
+                     color: getColor('text');
+                     font-weight: 400;
+                     line-height: 1.71;
+                 }
+
+
+}
+}
