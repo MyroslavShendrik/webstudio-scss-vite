@@ -697,17 +697,17 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  fill: #AFB1B8;
-  /* анімація */
+  fill: #afb1b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition-property: background-color, fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0;
 }
 .our-developers .our-developers-list .our-developers-svg-list__link:hover {
   fill: #FFFFFF;
   background-color: var(--button-color);
-  border-radius: 50%;
 }
 
 .company {
