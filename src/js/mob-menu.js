@@ -1,4 +1,4 @@
-import '../scss/components/mob-menu.scss';
+
 (() => {
   const menuBtn = document.querySelector('.mob-menu-open-btn');
   const closeMenuBtn = document.querySelector('.mob-menu-close-btn');
