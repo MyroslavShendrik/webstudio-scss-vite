@@ -6,12 +6,13 @@ import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig({
   base: '/webstudio-scss-vite/',
-  root: 'src',
+  root: 'src', // корінь
   build: {
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: glob.sync('**/*.html', { ignore: ['node_modules/**'] }).reduce((entries, file) => {
+        // не додаємо 'src' два рази
         entries[file] = path.resolve(__dirname, 'src', file);
         return entries;
       }, {}),
