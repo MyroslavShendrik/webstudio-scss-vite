@@ -1,22 +1,31 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
-import path from 'path';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
+//! Handlebars
+// import handlebars from 'vite-plugin-handlebars';
+// import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/webstudio-scss-vite/',
-  root: 'src', // src вже root
+  base: '/goiteens-hw-js-vite/', //! 👈 ВАЖЛИВО: вкажіть базу
+  root: 'src',
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
     rollupOptions: {
-      input: glob.sync('*.html', { ignore: ['node_modules/**'] }).reduce((entries, file) => {
-        // Тільки ім'я файлу або шлях відносно root
-        entries[file] = path.resolve(__dirname, 'src', file); // тут file відносно src
-        return entries;
-      }, {}),
+      //! ❌ Це шукає тільки HTML-файли верхнього рівня src/, і не включає HTML-файли нижнього рівня
+      // input: glob.sync('./src/*.html'),
+      //! ✅ Це шукає ВСІ HTML-файли, включаючи HTML-файли нижнього рівня
+      input: glob.sync('./src/**/*.html'),
     },
+    outDir: '../dist',
   },
-  plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
+  // plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+  plugins: [
+    injectHTML(),
+    FullReload(['./src/**/**.html']),
+    //! Handlebars
+    // handlebars({
+    //   partialDirectory: resolve(__dirname, 'src/handlebars'),
+    //   include: '**/*.hbs'
+    // })
+  ],
 });
