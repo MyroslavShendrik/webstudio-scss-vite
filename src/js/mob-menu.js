@@ -1,4 +1,4 @@
-
+import '../css/main.min.css'
 (() => {
   const menuBtn = document.querySelector('.mob-menu-open-btn');
   const closeMenuBtn = document.querySelector('.mob-menu-close-btn');
@@ -27,6 +27,6 @@
   backdrop.addEventListener('click', closeMenu);
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 480) closeMenu();
+    if (window.innerWidth > 767) closeMenu();
   });
 })();

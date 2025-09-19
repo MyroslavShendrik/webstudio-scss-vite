@@ -9,6 +9,7 @@
 }
 
 
+
 .mob-menu-box {
   position: fixed;
   top: 0;
@@ -79,7 +80,7 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .mob-menu-open-btn {
     display: block;
   }
