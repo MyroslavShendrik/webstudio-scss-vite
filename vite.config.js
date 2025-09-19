@@ -7,7 +7,7 @@ import FullReload from 'vite-plugin-full-reload';
 // import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/goiteens-hw-js-vite/', //! 👈 ВАЖЛИВО: вкажіть базу
+  base: '/webstudio-scss-vite/', //! 👈 ВАЖЛИВО: вкажіть базу
   root: 'src',
   build: {
     rollupOptions: {
