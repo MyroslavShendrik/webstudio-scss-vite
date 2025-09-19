@@ -5,14 +5,12 @@ import FullReload from 'vite-plugin-full-reload';
 import path from 'path';
 
 export default defineConfig({
-  base: '/hw-js-vite/',
+  base: '/webstudio-scss-vite/',
   root: 'src',
   build: {
     rollupOptions: {
-      input: glob.sync('**/*.html').reduce((entries, file) => {
-        // name без розширення або просто відносний шлях
-        const name = path.relative('.', file);
-        entries[name] = path.resolve(__dirname, 'src', file);
+      input: glob.sync('**/*.html', { ignore: ['node_modules/**'] }).reduce((entries, file) => {
+        entries[file] = path.resolve(__dirname, 'src', file);
         return entries;
       }, {}),
     },
