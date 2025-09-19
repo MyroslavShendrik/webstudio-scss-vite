@@ -9,13 +9,15 @@ export default defineConfig({
   root: 'src',
   build: {
     rollupOptions: {
-      input: glob.sync('./src/**/*.html').reduce((entries, file) => {
-        const name = path.relative('src', file); // прибираємо "src/"
-        entries[name] = file;
+      input: glob.sync('**/*.html').reduce((entries, file) => {
+        // name без розширення або просто відносний шлях
+        const name = path.relative('.', file);
+        entries[name] = path.resolve(__dirname, 'src', file);
         return entries;
       }, {}),
     },
     outDir: '../dist',
+    emptyOutDir: true,
   },
   plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
 });
