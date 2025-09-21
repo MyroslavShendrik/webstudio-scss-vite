@@ -6,16 +6,18 @@ import path from 'path';
 
 export default defineConfig({
   base: '/webstudio-scss-vite/',
-  root: path.resolve(__dirname, 'src'), // повний шлях root
+  root: 'src', // відносний root
   build: {
-    outDir: path.resolve(__dirname, 'dist'), // повний шлях для збірки
+    outDir: '../dist', // відносно root
     rollupOptions: {
-      input: glob.sync('**/*.html', { cwd: path.resolve(__dirname, 'src'), absolute: true }).reduce((entries, file) => {
-        const name = path.relative(path.resolve(__dirname, 'src'), file);
-        entries[name] = file;
+      input: glob.sync('**/*.html', { cwd: 'src' }).reduce((entries, file) => {
+        entries[file] = path.resolve(__dirname, 'src', file); // повний шлях для Rollup
         return entries;
       }, {}),
     },
   },
-  plugins: [injectHTML(), FullReload([path.resolve(__dirname, 'src/**/*.html')])],
+  plugins: [
+    injectHTML(),
+    FullReload(['src/**/*.html'])
+  ],
 });
