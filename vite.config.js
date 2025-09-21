@@ -26,6 +26,6 @@ export default defineConfig({
   },
   plugins: [
     injectHTML(),                    // інжект HTML
-    FullReload(['src/**/*.html']),   // гаряче оновлення HTML
+    FullReload(['src/**/index.html']),   // гаряче оновлення HTML
   ],
 });
