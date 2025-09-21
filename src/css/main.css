@@ -165,11 +165,71 @@ body {
   display: block;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .mob-menu-open-btn {
     display: block;
   }
 }
+.mob-menu-nav-list {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+}
+
+.mob-menu-nav-list-link {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  color: #212121;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mob-contact-list {
+  margin-bottom: 64px;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+}
+
+.mob-contact-list-link {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  color: #757575;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mob-contact-list-link:hover {
+  color: #2196F3;
+}
+
+.mob-contact-list-link:first-child {
+  font-size: 34px;
+}
+
+.mob-social-list {
+  display: flex;
+}
+
+.mob-social-list-item {
+  padding: 0 10px;
+}
+
+.mob-social-list-item:not(:last-child) {
+  border-right: 1px solid rgba(33, 33, 33, 0.2);
+}
+
+.mob-social-list-link {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: 0.02em;
+  color: #2196f3;
+}
+
 .header {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -637,17 +697,17 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  fill: #AFB1B8;
-  /* анімація */
+  fill: #afb1b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition-property: background-color, fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0;
 }
 .our-developers .our-developers-list .our-developers-svg-list__link:hover {
   fill: #FFFFFF;
   background-color: var(--button-color);
-  border-radius: 50%;
 }
 
 .company {

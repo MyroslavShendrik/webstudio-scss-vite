@@ -8,17 +8,15 @@ export default defineConfig({
   base: '/webstudio-scss-vite/',
   root: 'src',
   build: {
+    outDir: '../dist',
     rollupOptions: {
-      input: glob.sync('./src/**/*.html').reduce((entries, file) => {
-        const name = path.parse(file).name; // тільки ім’я файлу без шляху
-        entries[name] = file;
+      input: glob.sync('**/*.html', { cwd: 'src' }).reduce((entries, file) => {
+        // file відносно root
+        entries[file] = path.resolve(__dirname, 'src', file);
         return entries;
       }, {}),
     },
-    outDir: '../dist', // збірка піде в dist на рівні з src
   },
-  plugins: [
-    injectHTML(),
-    FullReload(['./src/**/*.html']),
-  ],
+  plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
 });
+
