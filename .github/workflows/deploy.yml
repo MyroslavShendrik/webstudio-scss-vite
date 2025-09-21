@@ -1,31 +1,23 @@
-name: Build WebStudio
+name: Build and deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Скачуємо репозиторій
-      - uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-      # 2. Встановлюємо Node.js
-      - uses: actions/setup-node@v3
+      - name: Install and build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          node-version: 20
-
-      # 3. Встановлюємо залежності
-      - run: npm install
-
-      # 4. Перевірка файлів перед збіркою
-      - run: |
-          echo "Перевіряємо наявність HTML:"
-          ls -R src
-
-      # 5. Робимо збірку
-      - run: npm run build
+          branch: gh-pages
+          folder: dist
