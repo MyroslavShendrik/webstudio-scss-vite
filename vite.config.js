@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: glob.sync('./src/**/*.html').reduce((entries, file) => {
-        const name = path.relative('src', file); // прибираємо "src/"
+        const name = path.parse(file).name; // тільки ім’я без шляху
         entries[name] = file;
         return entries;
       }, {}),
