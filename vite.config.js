@@ -1,23 +1,31 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
+import path from 'path';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
-import path from 'path';
+
+// Функція для автоматичного збору всіх HTML файлів у src
+function getHtmlInputs() {
+  const files = glob.sync('**/*.html', { cwd: 'src', nodir: true }); // тільки файли
+  const entries = {};
+  files.forEach(file => {
+    entries[file] = path.resolve(__dirname, 'src', file); // повний шлях для Rollup
+  });
+  return entries;
+}
 
 export default defineConfig({
-  base: '/webstudio-scss-vite/',
-  root: 'src', // відносний root
+  base: '/webstudio-scss-vite/',    // базовий шлях для продакшн
+  root: 'src',                       // відносний root
   build: {
-    outDir: '../dist', // відносно root
+    outDir: '../dist',               // збірка відносно root
+    emptyOutDir: true,               // очищає dist перед збіркою
     rollupOptions: {
-      input: glob.sync('**/*.html', { cwd: 'src' }).reduce((entries, file) => {
-        entries[file] = path.resolve(__dirname, 'src', file); // повний шлях для Rollup
-        return entries;
-      }, {}),
+      input: getHtmlInputs(),        // автоматичний збір всіх HTML
     },
   },
   plugins: [
-    injectHTML(),
-    FullReload(['src/**/*.html'])
+    injectHTML(),                    // інжект HTML
+    FullReload(['src/**/*.html']),   // гаряче оновлення HTML
   ],
 });
