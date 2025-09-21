@@ -19,3 +19,4 @@ export default defineConfig({
   },
   plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
 });
+
