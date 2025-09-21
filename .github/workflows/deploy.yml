@@ -11,16 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Скачуємо код репозиторію на CI
+      # 1. Скачуємо репозиторій
       - uses: actions/checkout@v3
 
-      # Встановлюємо Node.js
+      # 2. Встановлюємо Node.js
       - uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # Встановлюємо залежності
+      # 3. Встановлюємо залежності
       - run: npm install
 
-      # Робимо збірку
+      # 4. Перевірка файлів перед збіркою
+      - run: |
+          echo "Перевіряємо наявність HTML:"
+          ls -R src
+
+      # 5. Робимо збірку
       - run: npm run build
