@@ -468,7 +468,7 @@ body {
   background-color: #2F303A;
   padding-top: 118px;
   padding-bottom: 118px;
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../Images/main-background.jpg);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/main-background.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -535,7 +535,7 @@ body {
 @media screen and (max-width: 480px) {
   .main-section {
     background-color: #2F303A;
-    background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.5)), url("../Images/main-background.jpg");
+    background-image: linear-gradient(rgba(47, 48, 58, 0.5), rgba(47, 48, 58, 0.5)), url("../images/main-background.jpg");
     background-size: cover;
     background-position: center;
     padding-top: 100px;
