@@ -163,7 +163,7 @@
                 rgba(47, 48, 58, 0.4), 
                 rgba(47, 48, 58, 0.4)
             ),
-            url("../images/bckimg-tablet-1x.jpg");
+            url("../images/background-tablet-1x.jpg");
         
         //* 2x screens, retina
         @media screen and (min-device-pixel-ratio: 2),
@@ -175,9 +175,21 @@
                     rgba(47, 48, 58, 0.4), 
                     rgba(47, 48, 58, 0.4)
                 ),
-                url("../images/bckimg-tablet-2x.jpg");
-        }   
+                url("../images/background-tablet-2x.jpg");
+        }  
+         @media screen and (min-device-pixel-ratio: 3),
+        screen and (min-resolution: 288dpi),
+        screen and (min-resolution: 3dppx) {
+            background-image: 
+                linear-gradient(
+                    to right,
+                    rgba(47, 48, 58, 0.4), 
+                    rgba(47, 48, 58, 0.4)
+                ),
+                url("../images/background-tablet-3x.jpg");
     }
+    }
+
 
     //* Від 1200px
     @media screen and (min-width: 1200px) {
@@ -189,7 +201,7 @@
                     rgba(47, 48, 58, 0.4), 
                     rgba(47, 48, 58, 0.4)
                 ),
-            url("../images/image-1-desktop-1x.jpg");
+           url("../images/background-desktop-1x.jpg");
         
         //* 2x screens, retina
         @media screen and (min-device-pixel-ratio: 2),
@@ -201,7 +213,18 @@
                         rgba(47, 48, 58, 0.4), 
                         rgba(47, 48, 58, 0.4)
                     ),
-                    url("../images/image-1-desktop-2x.jpg");
+                    url("../images/background-desktop-2x.jpg");
         }
+                 @media screen and (min-device-pixel-ratio: 3),
+        screen and (min-resolution: 288dpi),
+        screen and (min-resolution: 3dppx) {
+            background-image: 
+                linear-gradient(
+                    to right,
+                    rgba(47, 48, 58, 0.4), 
+                    rgba(47, 48, 58, 0.4)
+                ),
+                url("../images/background-desktop-3x.jpg");
+    }
     }
 }
